@@ -6,9 +6,10 @@ Script has been tested at AWS Lambda (Node v18) environment, however, it can be 
 ## How to use it
 ###Step 1: Create a AWS Lambda function with Node v18 environment
 See https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html for details.
+![AWS Lambda Environment Variables](https://raw.githubusercontent.com/lubu12/decap-sveltia-cms-auth-lambda/394d947965b7f1d4c8da5f5eda4359c54c18be61/img/sveltia-cms-auth-Lambda.png)
 
 ### Step 2: Copy src/index.mjs to Lambda
-![Image](img/sveltia-cms-auth-Lambda (1).png)
+![AWS Lambda Script](https://raw.githubusercontent.com/lubu12/decap-sveltia-cms-auth-lambda/394d947965b7f1d4c8da5f5eda4359c54c18be61/img/sveltia-cms-auth-Lambda%20(1).png)
 
 ###Step 3: Setup ALB or API gateway trigger to Lambda
 Script has been tested via ALB trigger. Some minor adjustment at the script may be required for API gateway trigger.
