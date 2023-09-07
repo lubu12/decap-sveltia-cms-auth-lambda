@@ -8,6 +8,7 @@ Script has been tested at AWS Lambda (Node v18) environment, however, it can be 
 See https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html for details.
 
 ### Step 2: Copy src/index.mjs to Lambda
+![Image](img/sveltia-cms-auth-Lambda (1).png)
 
 ###Step 3: Setup ALB or API gateway trigger to Lambda
 Script has been tested via ALB trigger. Some minor adjustment at the script may be required for API gateway trigger.
@@ -44,8 +45,8 @@ If your Lambda endpoint is having url path, add the path to `auth_endpoint` prop
     repo: username/repo
     branch: main # Branch to update (optional; defaults to master)
     site_domain: <your_app_domain>
-+  base_url: <your_lambda_endpoint_without_path>
-+  auth_endpoint: <your_lambda_endpoint_path>
++   base_url: <your_lambda_endpoint_without_path>
++   auth_endpoint: <your_lambda_endpoint_path>
 ```
 
 See https://decapcms.org/docs/backends-overview/ for backend configuration details.
