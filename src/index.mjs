@@ -4,7 +4,7 @@ const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 const ALLOWED_DOMAINS = process.env.ALLOWED_DOMAINS;
 
-const PATH_PREFIX = "/lambda/sveltia-cms-auth";
+const ENDPOINT_PATH = "/lambda/sveltia-cms-auth";   // Replace this with your actual endpoint path
 const GITHUB_OAUTH_URL = "https://github.com/login/oauth";
 
 /** @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#escaping */
@@ -124,7 +124,7 @@ const callback = async (code) => {
  * @returns {} Response object
  */
 export const handler = async (event) => {
-  const pathName = event.path?.replace(PATH_PREFIX, "");
+  const pathName = event.path?.replace(ENDPOINT_PATH, "");
   const searchParams = event.queryStringParameters;
   
   if (pathName === "/auth") {
