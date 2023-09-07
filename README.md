@@ -6,9 +6,8 @@ Script has been tested at AWS Lambda (Node v18) environment, however, it can be 
 ## How to use it
 ### Step 1: Create a AWS Lambda function with Node v18 environment
 See https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html for details.
-![AWS Lambda Environment Variables](https://raw.githubusercontent.com/lubu12/decap-sveltia-cms-auth-lambda/394d947965b7f1d4c8da5f5eda4359c54c18be61/img/sveltia-cms-auth-Lambda.png)
 
-### Step 2: Copy src/index.mjs to Lambda
+### Step 2: Copy `src/index.mjs` to Lambda
 ![AWS Lambda Script](https://raw.githubusercontent.com/lubu12/decap-sveltia-cms-auth-lambda/394d947965b7f1d4c8da5f5eda4359c54c18be61/img/sveltia-cms-auth-Lambda%20(1).png)
 
 ### Step 3: Setup ALB or API gateway trigger to Lambda
@@ -19,14 +18,14 @@ The url at ALB or API gateway (Lambda endpoint) is needed for OAuth app at GitHu
 ### Step 4: Create an OAuth app at GitHub
 See https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app for details.
 
-- Application Name: <Your favorite app name>
-- Homepage URL: <Your favorite app url>
+- Application Name: `<Your favorite app name>`
+- Homepage URL: `<Your favorite app url>`
 - Application description: (optional)
 - Authorization callback URL: `<YOUR_LAMBDA_ENDPOINT>/callback`
 
-Once registered, click on the Generate a new client secret button. The app's Client ID and Client Secret will be displayed. We'll use them in Step 5 below.
+Once registered, click on the Generate a new client secret button. The app's `Client ID` and `Client Secret` will be displayed. We'll use them in Step 5 below.
 
-### Step 5: Setup environment variable at Lambda
+### Step 5: Setup environment variables at Lambda
 
 Required:
 `GITHUB_CLIENT_ID`
@@ -35,10 +34,10 @@ Required:
 Optional:
 `ALLOWED_DOMAINS`
 
+![AWS Lambda Environment Variables](https://raw.githubusercontent.com/lubu12/decap-sveltia-cms-auth-lambda/394d947965b7f1d4c8da5f5eda4359c54c18be61/img/sveltia-cms-auth-Lambda.png)
+
 ### Step 6: Update your CMS configuration
 Update `admin/config.yml` at your CMS repository.
-Under `backend`:
-`base_url`: `<YOUR_LAMBDA_ENDPOINT_WITHOUT_PATH>`
 If your Lambda endpoint is having url path, add the path to `auth_endpoint` property.
 ```diff
   backend:
@@ -46,7 +45,7 @@ If your Lambda endpoint is having url path, add the path to `auth_endpoint` prop
     repo: username/repo
     branch: main # Branch to update (optional; defaults to master)
     site_domain: <your_app_domain>
-+   base_url: <your_lambda_endpoint_without_path>
++   base_url: <your_lambda_endpoint_domain>
 +   auth_endpoint: <your_lambda_endpoint_path>
 ```
 
